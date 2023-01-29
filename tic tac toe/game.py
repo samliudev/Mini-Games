@@ -13,7 +13,7 @@ class TicTacToe:
     @staticmethod # doesn't correspond to a self 
     def print_board_nums():
         # 0 1 2, 3 4 5, 6 7 8
-        number_board = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
+        number_board = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)] # [['0', '1', '2'], ['3', '4', '5'], ['6', '7', '8']]
         for row in number_board:
             print('| ' + ' | '.join(row) + ' |')
 
@@ -28,7 +28,7 @@ class TicTacToe:
         return moves
     
     def empty_squares(self):
-        return ' ' in self.board
+        return ' ' in self.board # returns True/False
     
     def num_empty_squares(self):
         return self.board.count(' ')
@@ -109,26 +109,26 @@ def play(game, x_player, o_player, print_game=True):
     if print_game:
         print('It\'s a tie!')
 
-# if __name__ == '__main__':
-#     x_player = RandomComputerPlayer('X')
-#     o_player = GeniusComputerPlayer('O')
-#     t = TicTacToe()
-#     play(t, x_player, o_player, print_game=True)
-
 if __name__ == '__main__':
-    x_wins = 0
-    o_wins = 0
-    ties = 0
-    for _ in range(10):
-        x_player = RandomComputerPlayer('X')
-        o_player = GeniusComputerPlayer('O')
-        t = TicTacToe()
-        result = play(t, x_player, o_player, print_game=False)
-        if result == 'X':
-            x_wins += 1
-        elif result == 'O':
-            o_wins += 1
-        else: 
-            ties += 1
+    x_player = RandomComputerPlayer('X')
+    o_player = GeniusComputerPlayer('O')
+    t = TicTacToe()
+    play(t, x_player, o_player, print_game=True)
+
+# if __name__ == '__main__':
+#     x_wins = 0
+#     o_wins = 0
+#     ties = 0
+#     for _ in range(10):
+#         x_player = RandomComputerPlayer('X')
+#         o_player = GeniusComputerPlayer('O')
+#         t = TicTacToe()
+#         result = play(t, x_player, o_player, print_game=False)
+#         if result == 'X':
+#             x_wins += 1
+#         elif result == 'O':
+#             o_wins += 1
+#         else: 
+#             ties += 1
     
-    print(f'After 10 iterations, we see {x_wins} X wins, {o_wins} O wins, and {ties} ties')
+#     print(f'After 10 iterations, we see {x_wins} X wins, {o_wins} O wins, and {ties} ties')
